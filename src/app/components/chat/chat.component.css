@@ -21,7 +21,9 @@
     border: none;
     border-radius: 0.3rem;
     background-color: rgb(255, 254, 222);
-
+    overflow-y: auto;
+    scrollbar-width:thin;
+    scrollbar-color: rgb(170, 209, 206) rgb(255, 254, 222);
 }
 
 form {

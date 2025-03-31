@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import { ChatService } from "src/app/services/ChatService";
 import { OnInit } from "@angular/core";
-import { UserService } from "src/app/services/UserService";
 import { Chat } from "src/app/models/models";
 import { Output, EventEmitter } from "@angular/core";
 
@@ -15,7 +14,7 @@ export class FriendsListComponent implements OnInit {
 
     @Output() eventEmitter = new EventEmitter()
 
-    constructor(private chatService: ChatService, private userService: UserService) { }
+    constructor(private chatService: ChatService) { }
 
     async ngOnInit() {
         const id = localStorage.getItem("social-id")
@@ -40,7 +39,7 @@ export class FriendsListComponent implements OnInit {
 
     }
 
-    sendData(friend:any){
+    sendData(friend:Chat){
         this.eventEmitter.emit(friend)
     }
 

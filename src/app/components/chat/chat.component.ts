@@ -2,7 +2,8 @@ import { Component, OnChanges, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { Input } from "@angular/core";
 import { MessageService } from "src/app/services/MessageService";
-
+import { Message } from "src/app/models/models";
+import { Chat } from "src/app/models/models";
 @Component({
     selector: "app-chat",
     templateUrl: "./chat.component.html",
@@ -10,19 +11,11 @@ import { MessageService } from "src/app/services/MessageService";
 })
 export class ChatComponent implements OnChanges, OnInit {
 
-    user = localStorage.getItem("social-id") || ""
+    @Input() receivedData: Chat | undefined
 
-    @Input() receivedData: any
-
+    user = parseInt(localStorage.getItem("social-id") || "0")
     chatData = []
-
-    messages = [
-        {
-            user1: "user2",
-            user2: this.user,
-            message: "hello"
-        }
-    ]
+    messages: Message[] = []
 
     chat = new FormGroup({
         message: new FormControl("")
@@ -30,21 +23,28 @@ export class ChatComponent implements OnChanges, OnInit {
 
     constructor(private messageService: MessageService){}
 
-    ngOnInit(): void {
-        
+    ngOnInit(){
+
     }
 
     ngOnChanges(){
-        this.messageService.getMessagesByChatId(this.receivedData.id).subscribe(data => {
-        })
+        setInterval(()=>{
+            if(this.receivedData?.id){
+                this.messageService.getMessagesByChatId(this.receivedData.id).subscribe(data => {
+                    this.messages = data
+                })
+            }
+        }, 500)
     }
 
     sendMessage(){
-        if(this.chat.value.message){
-            this.messages.push({
-                user1: "user1",
-                user2: this.user,
-                message: this.chat.value.message
+        if(this.chat.value.message && this.receivedData?.id){
+            const message: Message = {
+                chat_id: this.receivedData.id,
+                sender_id: this.user,
+                text: this.chat.value.message
+            }
+            this.messageService.saveMessage(message).subscribe(data => {
             })
             this.chat.reset()
         }

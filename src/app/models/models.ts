@@ -21,3 +21,10 @@ export interface Chat {
     user1_name: string
     user2_name: string
 }
+
+export interface Message {
+    id?: number
+    chat_id: number
+    sender_id: number
+    text: string
+}

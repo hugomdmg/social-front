@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Message } from "../models/models";
 
 @Injectable({
     providedIn: "root"
@@ -13,5 +14,9 @@ export class MessageService {
 
     getMessagesByChatId(id: number): Observable<any> {
         return this.http.post(this.apiUrl + "messages-chat-id", { id: id })
+    }
+
+    saveMessage(message: Message): Observable<any> {
+        return this.http.post(this.apiUrl + "send-message", message)
     }
 }

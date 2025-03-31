@@ -1,0 +1,16 @@
+<div>
+    <form [formGroup]="login" (submit)="doLogup()">
+        <h2>Create an account:</h2>
+        <label for="">Name:</label>
+        <input type="text" formControlName="name">
+        <label for="">Email:</label>
+        <input type="text" formControlName="email">
+        <label for="">Password:</label>
+        <input type="text" formControlName="password">
+        <label for="">Repeat password:</label>
+        <input type="text" formControlName="password2">
+        <button type="submit">enter</button>
+        <p>Already an account? <a routerLink="/login">log in</a></p>
+        <p id="alert">{{alert}}</p>
+    </form>
+</div>

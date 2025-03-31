@@ -1,0 +1,15 @@
+<div id="main-container">
+    <div>
+        <app-search></app-search>
+    </div>
+    <div id="main">
+        <app-publication></app-publication>
+        <div id="chat-container">
+            <app-chat [receivedData]="receivedData"></app-chat>
+        </div>
+    </div>
+    <div>
+        <app-friends-list (eventEmitter)="getData($event)"></app-friends-list>
+
+    </div>
+</div>

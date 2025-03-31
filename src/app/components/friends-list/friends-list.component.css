@@ -1,0 +1,22 @@
+#container {
+    border: 1px solid black;
+    align-items: center;
+    width: 20rem;
+    height: 49rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: rgb(170, 209, 206);
+}
+
+.friend {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 4px double black;
+    padding: 0.3rem;
+    
+}
+
+.friend:hover {
+    background-color: rgb(252, 255, 215);
+}

@@ -1,0 +1,11 @@
+<div>
+    <form [formGroup]="login" (submit)="doLogin()">
+        <label for="">Email:</label>
+        <input type="text" formControlName="email">
+        <label for="">Password:</label>
+        <input type="text" formControlName="password">
+        <button type="submit">enter</button>
+        <p>Not account yet? <a routerLink="/logup">log up</a></p>
+        <p id="alert">{{alert}}</p>
+    </form>
+</div>

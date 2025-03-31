@@ -1,0 +1,65 @@
+#container {
+    border: 1px solid black;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: rgb(170, 209, 206);
+    margin-right: 0.5rem;
+}
+
+#messages {
+    border: 1px solid black;
+    width: 20rem;
+    height: 20rem;
+    margin: 0.5rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: rgb(255, 254, 222);
+
+}
+
+form {
+    border: 1px solid black;
+    width: 20rem;
+    margin: 0.5rem; 
+    display: flex;
+    flex-direction:row;
+
+}
+
+form input {
+    width: 15rem;
+}
+form button {
+    width: 5rem;
+}
+
+p {
+    padding: 0.4rem;
+    margin: 0.2rem;
+    border-radius: 0.3rem;
+    width: fit-content;
+
+}
+
+#messages .user1 {
+    display: flex;
+    justify-content: end;
+    
+
+}
+
+.user1 p {
+    background-color: rgb(129, 255, 129);
+}
+
+
+.user2 p {
+    background-color: rgb(202, 230, 171);
+}

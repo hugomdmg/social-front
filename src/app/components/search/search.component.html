@@ -1,0 +1,11 @@
+<div id="container">
+    <h3>Find friends</h3>
+    <div>
+        <input type="text" (input)="doFilter($event)">
+    </div>
+    <div>
+        <div>
+            <div class="friend" *ngFor="let user of filteredUsers">{{user.name}} <button (click)="connect(user.id, user.name)">connect</button></div>
+        </div>
+    </div>
+</div>

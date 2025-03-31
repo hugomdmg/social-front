@@ -1,0 +1,23 @@
+div {
+    /* border: 1px solid black; */
+}
+
+#main-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    justify-content: space-between;
+    height: 50rem;
+}
+
+#main {
+    /* background-color: grey; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#chat-container {
+    display: flex;
+    align-items: end;
+}

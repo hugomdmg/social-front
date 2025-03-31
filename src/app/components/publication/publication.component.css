@@ -1,0 +1,26 @@
+#publication {
+    border-bottom: 4px double black;
+    margin: 0.3rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    width: 40rem;
+    padding-bottom: 1rem;
+}
+
+p {
+    margin: 0.2rem;
+}
+
+#container {
+    overflow-y: auto;
+    height: 50rem;
+    width: 50rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container {
+    scrollbar-width:initial;
+    scrollbar-color: rgb(170, 209, 206) rgb(235, 249, 255);
+}

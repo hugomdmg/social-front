@@ -1,0 +1,12 @@
+<div id="container">
+    <p>{{receivedData?.user2_name}}</p>
+    <div id="messages">
+        <div *ngFor="let message of messages" [ngClass]="{'user1': message.user1 == user, 'user2': message.user1 != user}" >
+            <p>{{message.message}}</p>
+        </div>
+    </div>
+    <form [formGroup]="chat" (submit)="sendMessage()">
+        <input type="text" formControlName="message">
+        <button type="submit">send</button>
+    </form>
+</div>

@@ -1,0 +1,40 @@
+div {
+    display: flex;
+    justify-content: center;
+    height: 45rem;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 1px solid rgb(170, 209, 206);
+    margin: 0.2rem;
+    border-radius: 0.3rem;
+    color: rgb(170, 209, 206);
+    width: 20rem;
+}
+
+input, label, button, p {
+    margin: 0.2rem;
+    font-size: 18px;
+
+}
+
+input {
+    margin-bottom: 2rem;
+    height: 2rem;
+    border: 1px solid rgb(170, 209, 206);
+    font-size: 18px;
+}
+
+button {
+    background-color: rgb(90, 212, 90);
+    border: 1px solid rgb(170, 209, 206);
+
+}
+
+#alert {
+    color: red;
+}

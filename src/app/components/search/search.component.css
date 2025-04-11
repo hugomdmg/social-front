@@ -24,3 +24,11 @@
 input {
     width: 19.5rem;
 }
+
+#list-container {
+    margin: 0.5rem;
+    height: 43rem;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(170, 209, 206) rgb(255, 254, 222);
+}

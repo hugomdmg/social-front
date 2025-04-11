@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from "@angular/core";
+import { Component, OnChanges } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { Input } from "@angular/core";
 import { MessageService } from "src/app/services/MessageService";
@@ -9,7 +9,7 @@ import { Chat } from "src/app/models/models";
     templateUrl: "./chat.component.html",
     styleUrls: ["./chat.component.css"]
 })
-export class ChatComponent implements OnChanges, OnInit {
+export class ChatComponent implements OnChanges {
 
     @Input() receivedData: Chat | undefined
 
@@ -21,24 +21,22 @@ export class ChatComponent implements OnChanges, OnInit {
         message: new FormControl("")
     })
 
-    constructor(private messageService: MessageService){}
+    constructor(private messageService: MessageService) { }
 
-    ngOnInit(){
-
-    }
-
-    ngOnChanges(){
-        setInterval(()=>{
-            if(this.receivedData?.id){
+    ngOnChanges() {
+        setInterval(() => {
+            if (this.receivedData?.id) {
                 this.messageService.getMessagesByChatId(this.receivedData.id).subscribe(data => {
                     this.messages = data
                 })
             }
+            let messagesContainer = document.getElementById("messages");
+            if (messagesContainer) { messagesContainer.scrollTop = messagesContainer.scrollHeight }
         }, 500)
     }
 
-    sendMessage(){
-        if(this.chat.value.message && this.receivedData?.id){
+    sendMessage() {
+        if (this.chat.value.message && this.receivedData?.id) {
             const message: Message = {
                 chat_id: this.receivedData.id,
                 sender_id: this.user,
@@ -48,5 +46,9 @@ export class ChatComponent implements OnChanges, OnInit {
             })
             this.chat.reset()
         }
+    }
+
+    closeChat(){
+        this.receivedData = undefined
     }
 }

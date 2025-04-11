@@ -1,6 +1,6 @@
 <div id="main-container">
     <div>
-        <app-search></app-search>
+        <app-search (eventEmitter)="getUserConnected($event)"></app-search>
     </div>
     <div id="main">
         <app-publication></app-publication>
@@ -9,7 +9,6 @@
         </div>
     </div>
     <div>
-        <app-friends-list (eventEmitter)="getData($event)"></app-friends-list>
-
+        <app-friends-list (eventEmitter)="getData($event)" [receivedConnection]="receivedConnection"></app-friends-list>
     </div>
 </div>

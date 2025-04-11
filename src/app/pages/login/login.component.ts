@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { Router } from "@angular/router";
 import { UserService } from "src/app/services/UserService";
+import { AuthService } from "src/app/services/auth.service";
 
 
 @Component({
@@ -17,7 +18,7 @@ export class LoginComponent {
 
         alert = ""
 
-        constructor(private router: Router, private userService: UserService){}
+        constructor(private router: Router, private userService: UserService, private authService: AuthService){}
 
         doLogin(){
             const credential = {
@@ -26,8 +27,9 @@ export class LoginComponent {
             }
             this.userService.login(credential).subscribe(data => {
                 if(data.id){
-                    localStorage.setItem('social-id', data.id)
-                    localStorage.setItem('social-name', data.name)
+                    this.authService.login(data.id, data.name)
+                    // localStorage.setItem('social-id', data.id)
+                    // localStorage.setItem('social-name', data.name)
                     this.router.navigateByUrl('/dashboard')
                 }else{
                     this.alert = "wrong email or password"

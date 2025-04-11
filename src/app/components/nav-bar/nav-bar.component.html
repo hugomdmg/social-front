@@ -2,7 +2,8 @@
         <h3>SOCIAL WEB EXAMPLE</h3>
         <div>
             <a id="home" routerLink="/"><strong>Home</strong></a>
-            <a routerLink="dashboard"><strong>Dashboard</strong></a>
-            <a routerLink="login"><strong>Log in</strong></a>
+            <a routerLink="dashboard" *ngIf="logged"><strong>Dashboard</strong></a>
+            <a routerLink="login" *ngIf="!logged"><strong>Log in</strong></a>
+            <a routerLink="login" *ngIf="logged" (click)="logout()"><strong>Log out</strong></a>
         </div>
     </nav>

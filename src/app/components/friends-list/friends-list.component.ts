@@ -1,22 +1,23 @@
-import { Component } from "@angular/core";
 import { ChatService } from "src/app/services/ChatService";
-import { OnInit } from "@angular/core";
-import { Chat } from "src/app/models/models";
-import { Output, EventEmitter } from "@angular/core";
+import { Chat, User } from "src/app/models/models";
+import { Output, EventEmitter, Input, Component, OnChanges } from "@angular/core";
 
 @Component({
     selector: "app-friends-list",
     templateUrl: "./friends-list.component.html",
     styleUrls: ["./friends-list.component.css"]
 })
-export class FriendsListComponent implements OnInit {
+export class FriendsListComponent implements OnChanges {
     friends: Chat[] = []
 
     @Output() eventEmitter = new EventEmitter()
+    @Input() receivedConnection: User | undefined
+
 
     constructor(private chatService: ChatService) { }
 
-    async ngOnInit() {
+    async ngOnChanges() {
+        this.friends = []
         const id = localStorage.getItem("social-id")
         const userName = localStorage.getItem("social-name")
         if (id) {
@@ -36,13 +37,10 @@ export class FriendsListComponent implements OnInit {
                 }
             })
         }
-
     }
 
-    sendData(friend:Chat){
+    sendData(friend: Chat) {
         this.eventEmitter.emit(friend)
     }
-
-
 
 }

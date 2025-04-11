@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { Chat } from "src/app/models/models";
+import { Chat, User } from "src/app/models/models";
 
 @Component({
     selector: "app-dashboard",
@@ -8,9 +8,15 @@ import { Chat } from "src/app/models/models";
 })
 export class DashboardComponent {
 
-    receivedData: Chat | undefined
+    receivedData!: Chat
+    receivedConnection!: User
 
-    getData(friend:any){
+    getData(friend:Chat){
         this.receivedData = friend
+    }
+
+    getUserConnected(data:User){
+        this.receivedConnection = data
+        console.log('dashboard',data)
     }
 }

@@ -1,5 +1,8 @@
-<div id="container">
-    <p>{{receivedData?.user2_name}}</p>
+<div id="container" *ngIf="receivedData">
+    <div id="head">
+        <p>{{receivedData.user2_name}}</p>
+        <button (click)="closeChat()">x</button>
+    </div>
     <div id="messages">
         <div *ngFor="let message of messages" [ngClass]="{'user1': message.sender_id == user, 'user2': message.sender_id != user}" >
             <p>{{message.text}}</p>

@@ -1,9 +1,10 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Chat, User } from "../models/models";
+import { Chat } from "../models/models";
 import { Observable } from "rxjs";
 import { UserService } from "./UserService";
 import { firstValueFrom } from 'rxjs';
+import { environment } from "src/environment/environment";
 
 
 @Injectable({
@@ -11,7 +12,8 @@ import { firstValueFrom } from 'rxjs';
 })
 export class ChatService {
 
-    private apiUrl = "http://localhost:8080/chat/"
+    private apiUrl = environment.apiUrl + "chat/"
+
 
     constructor(private http: HttpClient, private userService: UserService) { }
 

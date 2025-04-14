@@ -4,7 +4,7 @@ import { Chat } from "../models/models";
 import { Observable } from "rxjs";
 import { UserService } from "./UserService";
 import { firstValueFrom } from 'rxjs';
-import { environment } from "src/environment/environment";
+import { environment } from "src/environments/environment";
 
 
 @Injectable({
